@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .Welcome-box {
+    @apply flex items-center w-fit rounded-[20px] bg-[#03001433] backdrop-blur-[10px];
+  }
+  .Welcome-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#b49bff] to-[#d8ccff];
+  }
+  .button-primary {
+    @apply bg-gradient-to-b from-[#7042f8] to-[#5a30d5] shadow-[0_0_10px_#7042f8];
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #030014;
+  color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Offset anchor scroll targets below the fixed navbar */
+section[id] {
+  scroll-margin-top: 100px;
+}
+div[id] {
+  scroll-margin-top: 100px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #030014;
+}
+::-webkit-scrollbar-thumb {
+  background: #7042f8;
+  border-radius: 10px;
+}
+
+/* ── Custom Cursor ── */
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(100, 210, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  translate: -50% -50%;
+  mix-blend-mode: normal;
+  box-shadow: 0 0 12px rgba(100, 210, 255, 0.25),
+              inset 0 0 12px rgba(100, 210, 255, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #64d2ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  translate: -50% -50%;
+  box-shadow: 0 0 8px rgba(100, 210, 255, 0.6),
+              0 0 20px rgba(100, 210, 255, 0.3);
+}
+
+/* Hide custom cursor on touch / small screens */
+@media (hover: none), (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+    cursor: auto !important;
+  }
+  .custom-cursor-ring,
+  .custom-cursor-dot {
+    display: none !important;
+  }
 }
