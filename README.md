@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Arpan Biswas — Developer Portfolio
 
-## Getting Started
+A modern, futuristic, and high-performance developer portfolio built with **Next.js**, showcasing my projects, skills, and passion for Artificial Intelligence, Machine Learning, and Web Development.
 
-First, run the development server:
+🌐 **Live Website:** https://portfoliox-tauv.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focused on building scalable, efficient, and user-centric applications. It combines modern UI/UX design with smooth animations and interactive elements to create an engaging experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 Features
 
-To learn more about Next.js, take a look at the following resources:
+- ⚡ **Modern Futuristic UI** — Clean, dark-themed interface with glowing accents  
+- 🎬 **Smooth Animations** — Powered by Framer Motion  
+- 🧠 **AI-Focused Projects Showcase**  
+- 📱 **Fully Responsive Design** — Optimized for all devices  
+- 🚀 **Optimized Performance** — Fast load times and efficient rendering  
+- 🧩 **Component-Based Architecture** — Scalable and maintainable code  
+- 🌐 **Deployed on Vercel** — Production-ready hosting  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tech Stack
 
-## Deploy on Vercel
+### 🚀 Frontend
+- **Next.js (App Router)**
+- **React**
+- **TypeScript**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🎨 Styling
+- **Tailwind CSS**
+- **Custom UI Components**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🎬 Animations & Effects
+- **Framer Motion**
+
+### 🧊 3D & Interactive Elements
+- **Three.js / React Three Fiber** *(if applicable)*
+
+### ☁️ Deployment
+- **Vercel**
+
+---
+
+## 📁 Project Structure
+
+
+PORTFOLIO/
+├── app/
+├── components/
+├── public/
+├── utils/
+├── .gitignore
+├── README.md
+├── next.config.ts
+├── package.json
+├── tsconfig.json
+
+👉 Why this is better:
+
+Proper indentation ✅
+Clean tree format ✅
+Easy to read ✅
+⚙️ Getting Started (Fixed)
+
+Replace your current block with this:
+
+## ⚙️ Getting Started
+
+### 📥 Clone the Repository
+
+git clone https://github.com/8ernity/PORTFOLIO.git  
+cd PORTFOLIO  
+
+---
+
+### 📦 Install Dependencies
+
+npm install  
+
+---
+
+### 💻 Run Development Server
+
+npm run dev  
+
+Open in browser:  
+http://localhost:3000  
+
+---
+
+### 🏗 Build for Production
+
+npm run build  
+
+---
+
+### ▶️ Start Production Server
+
+npm start  
+
+---
+
+### 🤝 Contributing
+
+Contributions, suggestions, and feedback are welcome!  
+Feel free to fork the repository and submit a pull request.
+
+---
+
+### ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
+
+---
+
+### 📜 License
+
+This project is open-source and available under the MIT License.
