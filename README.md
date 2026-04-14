@@ -46,28 +46,20 @@ This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focuse
 
 ---
 
-## 📁 Project Structure
+## 📁 Folder Structure
 
-
+```
 PORTFOLIO/
-├── app/
-├── components/
-├── public/
-├── utils/
+├── app/                # App router pages and layouts
+├── components/         # Reusable UI components
+├── public/             # Static assets (images, models, audio)
+├── utils/              # Helper functions and utilities
 ├── .gitignore
 ├── README.md
-├── next.config.ts
-├── package.json
-├── tsconfig.json
-
-👉 Why this is better:
-
-Proper indentation ✅
-Clean tree format ✅
-Easy to read ✅
-⚙️ Getting Started (Fixed)
-
-Replace your current block with this:
+├── next.config.ts      # Next.js configuration
+├── package.json        # Dependencies and scripts
+└── tsconfig.json       # TypeScript configuration
+```
 
 ## ⚙️ Getting Started
 
