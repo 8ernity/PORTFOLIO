@@ -1,6 +1,10 @@
 # 🚀 Arpan Biswas — Developer Portfolio
 
-A modern, futuristic, and high-performance developer portfolio built with **Next.js**, showcasing my projects, skills, and passion for Artificial Intelligence, Machine Learning, and Web Development.
+## 📸 Preview
+
+<p align="center">
+  <img src="./public/prev.gif" width="800"/>
+</p>
 
 🌐 **Live Website:** https://portfoliox-tauv.vercel.app
 
