@@ -8,13 +8,13 @@
 
 🌐 **Live Website:** https://portfoliox-tauv.vercel.app
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## ✨ Overview
 
 This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focused on building scalable, efficient, and user-centric applications. It combines modern UI/UX design with smooth animations and interactive elements to create an engaging experience.
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 🎯 Features
 
@@ -26,7 +26,7 @@ This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focuse
 - 🧩 **Component-Based Architecture** — Scalable and maintainable code  
 - 🌐 **Deployed on Vercel** — Production-ready hosting  
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 🛠 Tech Stack
 
@@ -48,7 +48,7 @@ This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focuse
 ### ☁️ Deployment
 - **Vercel**
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 📁 Folder Structure
 
@@ -72,13 +72,13 @@ PORTFOLIO/
 git clone https://github.com/8ernity/PORTFOLIO.git  
 cd PORTFOLIO  
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ### 📦 Install Dependencies
 
 npm install  
 
----
+
 
 ### 💻 Run Development Server
 
@@ -87,32 +87,32 @@ npm run dev
 Open in browser:  
 http://localhost:3000  
 
----
+
 
 ### 🏗 Build for Production
 
 npm run build  
 
----
+
 
 ### ▶️ Start Production Server
 
 npm start  
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ### 🤝 Contributing
 
 Contributions, suggestions, and feedback are welcome!  
 Feel free to fork the repository and submit a pull request.
 
----
+
 
 ### ⭐ Support
 
 If you like this project, consider giving it a ⭐ on GitHub!
 
----
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ### 📜 License
 
