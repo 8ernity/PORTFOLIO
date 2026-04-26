@@ -50,6 +50,34 @@ This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focuse
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
+## 🏛️ System Architecture
+
+```mermaid
+sequenceDiagram
+
+    participant U as User
+    participant F as Frontend
+    participant S as Server
+    participant E as Email Service
+
+    U->>F: Open portfolio
+    F-->>U: Load homepage
+
+    U->>F: View projects
+    F-->>U: Show project details
+
+    U->>F: Submit contact form
+    F->>S: Send form data
+
+    S->>E: Send email
+    E-->>S: Confirmation
+
+    S-->>F: Success response
+    F-->>U: Show success message
+```
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
 ## 📁 Folder Structure
 
 ```
