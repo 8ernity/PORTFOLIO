@@ -1,6 +1,12 @@
-# 🚀 Arpan Biswas — Developer Portfolio
+<h1 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="38" style="vertical-align:-4px;">
+  Developer Portfolio — Arpan Biswas
+</h1>
 
-## 📸 Preview
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4f7/512.gif" width="28" style="vertical-align:-4px;">
+  Preview
+</h2>
 
 <p align="center">
   <img src="./public/prev.gif" width="800"/>
