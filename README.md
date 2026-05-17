@@ -108,7 +108,11 @@ PORTFOLIO/
 └── tsconfig.json       # TypeScript configuration
 ```
 
-## ⚙️ Getting Started
+<h2 align="left">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2699_fe0f/512.gif" alt="⚙️" width="35" height="35" align="center">
+  &nbsp;<b>Getting Started</b>
+</h2>
+
 
 ### 📥 Clone the Repository
 
@@ -117,7 +121,11 @@ cd PORTFOLIO
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-### 📦 Install Dependencies
+<h3 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f4e6/512.gif" alt="📦" width="28" style="vertical-align:-4px;">
+  Install Dependencies
+</h3>
+
 
 npm install  
 
