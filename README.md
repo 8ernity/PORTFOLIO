@@ -16,13 +16,19 @@
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-## ✨ Overview
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2728/512.gif" alt="✨" width="25" style="vertical-align:-4px;">
+  Overview
+</h2>
 
 This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focused on building scalable, efficient, and user-centric applications. It combines modern UI/UX design with smooth animations and interactive elements to create an engaging experience.
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-## 🎯 Features
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.gif" width="28" style="vertical-align:-4px;">
+  Features
+</h2>
 
 - ⚡ **Modern Futuristic UI** — Clean, dark-themed interface with glowing accents  
 - 🎬 **Smooth Animations** — Powered by Framer Motion  
@@ -34,7 +40,10 @@ This portfolio represents my journey as a **B.Tech CSE (AI-ML)** student, focuse
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-## 🛠 Tech Stack
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6e0_fe0f/512.gif" alt="🛠️" width="28" style="vertical-align:-4px;">
+  Tech Stack
+</h2>
 
 ### 🚀 Frontend
 - **Next.js (App Router)**
