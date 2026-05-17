@@ -144,14 +144,19 @@ npm start
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-### 🤝 Contributing
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f91d/512.gif" alt="🤝" width="28" style="vertical-align:-4px;">
+  Contributing
+</h2>
 
 Contributions, suggestions, and feedback are welcome!  
 Feel free to fork the repository and submit a pull request.
 
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2b50/512.gif" alt="⭐" width="28" style="vertical-align:-4px;">
+  Support
+</h2>
 
-
-### ⭐ Support
 
 If you like this project, consider giving it a ⭐ on GitHub!
 
