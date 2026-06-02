@@ -75,7 +75,7 @@ const Projects = () => {
             }}
             className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] flex-1 flex flex-col cursor-pointer transition-colors duration-300 hover:border-purple-500/60 group no-underline"
           >
-            <div className="relative w-full h-[220px] overflow-hidden">
+            <div className="relative w-full aspect-video overflow-hidden">
               <Image
                 src={project.image}
                 alt={project.title}

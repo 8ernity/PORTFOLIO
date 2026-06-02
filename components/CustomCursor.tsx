@@ -12,8 +12,8 @@ const CustomCursor = () => {
   const mouseY = useMotionValue(0);
 
   // Outer ring follows with snappier spring (faster)
-  const ringX = useSpring(mouseX, { damping: 25, stiffness: 600, mass: 0.1 });
-  const ringY = useSpring(mouseY, { damping: 25, stiffness: 600, mass: 0.1 });
+  const ringX = useSpring(mouseX, { damping: 40, stiffness: 2000, mass: 0.05 });
+  const ringY = useSpring(mouseY, { damping: 40, stiffness: 2000, mass: 0.05 });
 
   // Inner dot follows with snappier spring
   const dotX = useSpring(mouseX, { damping: 30, stiffness: 400, mass: 0.2 });
