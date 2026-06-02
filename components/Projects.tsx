@@ -6,6 +6,13 @@ import { motion, Variants } from "framer-motion";
 
 const projects = [
   {
+    title: "NeuralSculpt",
+    description:
+      "A cutting-edge platform to mold and manipulate neural networks. Shape the future of AI with intuitive architectural design.",
+    image: "/NeuralSculpt.jpg",
+    link: "https://github.com/8ernity",
+  },
+  {
     title: "Vortex",
     description:
       "Navigate the shadows of communication. Silently intercept messages unseen, unearth erased secrets from the void, and command a phantom responder in your stead.",
