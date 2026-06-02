@@ -6,6 +6,13 @@ import { motion, Variants } from "framer-motion";
 
 const projects = [
   {
+    title: "Vortex",
+    description:
+      "Navigate the shadows of communication. Silently intercept messages unseen, unearth erased secrets from the void, and command a phantom responder in your stead.",
+    image: "/Vortex.jpg",
+    link: "https://github.com/8ernity",
+  },
+  {
     title: "Nebuladash",
     description:
       "A stunning, interactive dashboard experience. Visualize data dynamically across the cosmic expanse.",
