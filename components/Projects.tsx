@@ -6,6 +6,13 @@ import { motion, Variants } from "framer-motion";
 
 const projects = [
   {
+    title: "FaceAttend",
+    description:
+      "A facial recognition based attendance system. Streamline your attendance tracking process securely and efficiently.",
+    image: "/FaceAttend.jpg",
+    link: "https://github.com/8ernity",
+  },
+  {
     title: "EyeSense",
     description:
       "Transforming interaction through intelligent eye tracking. Control your browser effortlessly with just a blink.",
