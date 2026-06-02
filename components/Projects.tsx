@@ -6,6 +6,13 @@ import { motion, Variants } from "framer-motion";
 
 const projects = [
   {
+    title: "VideoFetch",
+    description:
+      "A fast and robust video downloading tool. Easily fetch videos from various platforms with high efficiency.",
+    image: "/Videofetch.jpg",
+    link: "https://github.com/8ernity",
+  },
+  {
     title: "FaceAttend",
     description:
       "A facial recognition based attendance system. Streamline your attendance tracking process securely and efficiently.",
@@ -57,7 +64,7 @@ const Projects = () => {
       <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20">
         My Projects
       </h1>
-      <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 w-full max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <motion.a
             href={project.link}
