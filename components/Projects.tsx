@@ -6,6 +6,13 @@ import { motion, Variants } from "framer-motion";
 
 const projects = [
   {
+    title: "Wraith",
+    description:
+      "A phantom in the network. An enigmatic tool that grants administrators absolute, unseen control over client screens from the shadows.",
+    image: "/Wraith.jpg",
+    link: "https://github.com/8ernity",
+  },
+  {
     title: "VideoFetch",
     description:
       "A fast and robust video downloading tool. Easily fetch videos from various platforms with high efficiency.",
