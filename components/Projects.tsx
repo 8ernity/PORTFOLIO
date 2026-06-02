@@ -6,6 +6,13 @@ import { motion, Variants } from "framer-motion";
 
 const projects = [
   {
+    title: "Nebuladash",
+    description:
+      "A stunning, interactive dashboard experience. Visualize data dynamically across the cosmic expanse.",
+    image: "/Nebuladash.jpg",
+    link: "https://github.com/8ernity",
+  },
+  {
     title: "Wraith",
     description:
       "A phantom in the network. An enigmatic tool that grants administrators absolute, unseen control over client screens from the shadows.",
