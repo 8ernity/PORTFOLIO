@@ -94,7 +94,7 @@ const HeroContent = () => {
           rel="noopener noreferrer"
           variants={slideInFromLeft(1)}
         >
-          <StarButton>
+          <StarButton backgroundColor="#030014">
             View My Work
           </StarButton>
         </motion.a>
