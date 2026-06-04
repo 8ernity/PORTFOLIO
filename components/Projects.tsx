@@ -14,7 +14,7 @@ const projects = [
     link: "https://github.com/8ernity",
   },
   {
-    title: "NeuralSculpt",
+    title: "Neural Sculptor",
     description:
       "A cutting-edge platform to mold and manipulate neural networks. Shape the future of AI with intuitive architectural design.",
     image: "/NeuralSculpt.jpg",
@@ -28,14 +28,14 @@ const projects = [
     link: "https://github.com/8ernity",
   },
   {
-    title: "Nebuladash",
+    title: "Nebula Dashboard",
     description:
       "A stunning, interactive dashboard experience. Visualize data dynamically across the cosmic expanse.",
     image: "/Nebuladash.jpg",
     link: "https://github.com/8ernity",
   },
   {
-    title: "Wraith",
+    title: "W.R.A.I.T.H.",
     description:
       "A phantom in the network. An enigmatic tool that grants administrators absolute, unseen control over client screens from the shadows.",
     image: "/Wraith.jpg",
@@ -49,7 +49,7 @@ const projects = [
     link: "https://github.com/8ernity",
   },
   {
-    title: "FaceAttend",
+    title: "FaceAttendance",
     description:
       "A facial recognition based attendance system. Streamline your attendance tracking process securely and efficiently.",
     image: "/FaceAttend.jpg",
@@ -129,9 +129,25 @@ const Projects = () => {
                 <h1 className="text-2xl font-semibold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
                   {project.title}
                 </h1>
-                <p className="mt-2 text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                <p className="mt-2 text-gray-300 group-hover:text-gray-200 transition-colors duration-300 flex-grow">
                   {project.description}
                 </p>
+                <div className="mt-4 flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-colors duration-300">
+                  <span className="font-semibold text-sm">View Codebase</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17l9.2-9.2M17 17V7H7" />
+                  </svg>
+                </div>
               </div>
             </HolographicCard>
           </motion.a>
