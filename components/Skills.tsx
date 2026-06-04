@@ -120,7 +120,6 @@ const Skills = () => {
                     alt={skill.alt}
                     width={skill.width}
                     height={skill.height}
-                    style={{ width: "auto", height: "auto" }}
                   />
                 </motion.div>
               );

@@ -120,7 +120,6 @@ const HeroContent = () => {
             width={650}
             draggable={false}
             priority
-            style={{ width: "auto", height: "auto" }}
           />
         </motion.div>
       </motion.div>
