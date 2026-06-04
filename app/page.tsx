@@ -4,6 +4,7 @@ import Skills from "@/components/Skills";
 import Encryption from "@/components/Encryption";
 import Projects from "@/components/Projects";
 import LoadingScreen from "@/components/LoadingScreen";
+import { SocialConnectButtons } from "@/components/ui/social-connect-platform-buttons";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Skills />
         <Encryption />
         <Projects />
+        <SocialConnectButtons />
       </div>
     </main>
   );
