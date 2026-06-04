@@ -8,6 +8,7 @@ import {
   slideInFromTop,
 } from "../utils/motion";
 import Image from "next/image";
+import { StarButton } from "@/components/ui/star-button";
 
 const HeroContent = () => {
   const x = useMotionValue(0);
@@ -92,9 +93,10 @@ const HeroContent = () => {
           target="_blank"
           rel="noopener noreferrer"
           variants={slideInFromLeft(1)}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          View My Work
+          <StarButton>
+            View My Work
+          </StarButton>
         </motion.a>
       </div>
 

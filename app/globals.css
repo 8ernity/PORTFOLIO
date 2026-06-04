@@ -93,3 +93,18 @@ div[id] {
     display: none !important;
   }
 }
+
+@layer utilities {
+  .animate-star-btn {
+    animation: star-btn calc(var(--duration) * 1s) linear infinite;
+  }
+}
+
+@keyframes star-btn {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
