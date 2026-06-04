@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Github, Instagram, Linkedin, Loader2, Check, ChevronRight } from "lucide-react";
+import { Loader2, Check, ChevronRight } from "lucide-react";
 
 type Platform = 'linkedin' | 'instagram' | 'github';
 type ConnectionStatus = 'disconnected' | 'connecting' | 'connected';
@@ -18,11 +18,9 @@ export const SocialConnectButtons = () => {
     
     setConnectionStatus(prev => ({...prev, [platform]: 'connecting'}));
     
-    // Simulate connection process
     setTimeout(() => {
       setConnectionStatus(prev => ({...prev, [platform]: 'connected'}));
       
-      // Redirect after a brief moment of showing "Connected!"
       setTimeout(() => {
         const links: Record<Platform, string> = {
           linkedin: "https://in.linkedin.com/in/arpan-biswas-9a327b322",
@@ -39,18 +37,18 @@ export const SocialConnectButtons = () => {
   };
 
   const getButtonClass = (platform: Platform) => {
-    const baseClass = "group relative p-4 rounded-2xl backdrop-blur-xl border-2 shadow-2xl hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 active:scale-95 transition-all duration-500 ease-out overflow-hidden w-full ";
+    const baseClass = "group relative p-2.5 rounded-xl backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 ease-out overflow-hidden w-full ";
     
     const statusClass = connectionStatus[platform] === 'connected' 
-      ? 'bg-gradient-to-br from-[#0a1a0f] to-[#040e07] border-green-500/60 hover:border-green-400/60 cursor-default ' 
+      ? 'bg-gradient-to-br from-[#0a1a0f] to-[#040e07] border-green-500/50 hover:border-green-400/50 cursor-default ' 
       : connectionStatus[platform] === 'connecting' 
         ? 'opacity-80 cursor-wait ' 
         : '';
     
     const platformClass = {
-      linkedin: 'bg-gradient-to-br from-[#06142a] via-[#030a16] to-black border-blue-500/30 hover:border-blue-400/60 hover:shadow-blue-500/20 ',
-      instagram: 'bg-gradient-to-br from-[#2a0618] via-[#16030c] to-black border-pink-500/30 hover:border-pink-400/60 hover:shadow-pink-500/20 ',
-      github: 'bg-gradient-to-br from-[#0a1a0f] via-[#040e07] to-black border-green-500/30 hover:border-green-400/60 hover:shadow-green-500/20 '
+      linkedin: 'bg-gradient-to-br from-[#06142a] via-[#030a16] to-black border-blue-500/20 hover:border-blue-400/40 hover:shadow-blue-500/20 ',
+      instagram: 'bg-gradient-to-br from-[#2a0618] via-[#16030c] to-black border-[#E1306C]/30 hover:border-[#E1306C]/50 hover:shadow-[#E1306C]/20 ',
+      github: 'bg-gradient-to-br from-[#0a1a09] via-[#040e03] to-black border-lime-500/20 hover:border-lime-400/40 hover:shadow-lime-500/20 '
     }[platform];
     
     return baseClass + (statusClass || platformClass);
@@ -59,120 +57,88 @@ export const SocialConnectButtons = () => {
   const getStatusText = (platform: Platform) => {
     if (connectionStatus[platform] === 'connecting') return 'Connecting...';
     if (connectionStatus[platform] === 'connected') return 'Connected!';
-    return `Join ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
-  };
-
-  const getSubText = (platform: Platform) => {
-    if (connectionStatus[platform] === 'connecting') return 'Please wait a moment';
-    if (connectionStatus[platform] === 'connected') return 'Redirecting now...';
-    return 'Join our community';
+    return platform.charAt(0).toUpperCase() + platform.slice(1);
   };
 
   const getIconColor = (platform: Platform) => {
-    if (connectionStatus[platform] === 'connected') return 'text-green-400 group-hover:text-green-300';
+    if (connectionStatus[platform] === 'connected') return 'text-lime-400 group-hover:text-lime-300';
     return {
       linkedin: 'text-blue-400 group-hover:text-blue-300',
-      instagram: 'text-pink-400 group-hover:text-pink-300',
-      github: 'text-green-400 group-hover:text-green-300'
+      instagram: 'text-[#E1306C] group-hover:text-[#f35286]',
+      github: 'text-lime-400 group-hover:text-lime-300'
     }[platform];
   };
 
   const getIconBg = (platform: Platform) => {
-    if (connectionStatus[platform] === 'connected') return 'from-green-500/30 to-green-600/10 group-hover:from-green-400/40 group-hover:to-green-500/20';
+    if (connectionStatus[platform] === 'connected') return 'from-lime-500/20 to-lime-600/5 group-hover:from-lime-400/30 group-hover:to-lime-500/10';
     return {
-      linkedin: 'from-blue-500/30 to-blue-600/10 group-hover:from-blue-400/40 group-hover:to-blue-500/20',
-      instagram: 'from-pink-500/30 to-pink-600/10 group-hover:from-pink-400/40 group-hover:to-pink-500/20',
-      github: 'from-green-500/30 to-green-600/10 group-hover:from-green-400/40 group-hover:to-green-500/20'
+      linkedin: 'from-blue-500/20 to-blue-600/5 group-hover:from-blue-400/30 group-hover:to-blue-500/10',
+      instagram: 'from-[#E1306C]/20 to-[#C13584]/5 group-hover:from-[#E1306C]/30 group-hover:to-[#C13584]/10',
+      github: 'from-lime-500/20 to-lime-600/5 group-hover:from-lime-400/30 group-hover:to-lime-500/10'
     }[platform];
   };
 
   const getTextColor = (platform: Platform) => {
-    if (connectionStatus[platform] === 'connected') return 'text-green-400 group-hover:text-green-300';
+    if (connectionStatus[platform] === 'connected') return 'text-lime-400 group-hover:text-lime-300';
     return {
       linkedin: 'text-blue-400 group-hover:text-blue-300',
-      instagram: 'text-pink-400 group-hover:text-pink-300',
-      github: 'text-green-400 group-hover:text-green-300'
-    }[platform];
-  };
-
-  const getSubTextColor = (platform: Platform) => {
-    if (connectionStatus[platform] === 'connected') return 'text-green-300/60 group-hover:text-green-200/80';
-    return {
-      linkedin: 'text-blue-300/60 group-hover:text-blue-200/80',
-      instagram: 'text-pink-300/60 group-hover:text-pink-200/80',
-      github: 'text-green-300/60 group-hover:text-green-200/80'
+      instagram: 'text-[#E1306C] group-hover:text-[#f35286]',
+      github: 'text-lime-400 group-hover:text-lime-300'
     }[platform];
   };
 
   const renderIcon = (platform: Platform) => {
-    const className = `w-7 h-7 transition-all duration-300 group-hover:scale-110 drop-shadow-lg ${getIconColor(platform)}`;
+    const className = `w-5 h-5 transition-all duration-300 group-hover:scale-110 drop-shadow-lg fill-current ${getIconColor(platform)}`;
     switch(platform) {
-      case 'linkedin': return <Linkedin className={className} />;
-      case 'instagram': return <Instagram className={className} />;
-      case 'github': return <Github className={className} />;
+      case 'linkedin': return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className}><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>;
+      case 'instagram': return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className}><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.07m0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>;
+      case 'github': return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={className}><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>;
     }
   };
 
   return (
-    <div className="w-full relative z-20 font-sans pb-16 pt-8 px-4 sm:px-8">
-      
-      <div className="text-center mb-10">
-        <h2 className="font-bold text-[40px] font-serif">
-          <span className="text-white">Connect </span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-            With Me
-          </span>
-        </h2>
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl mx-auto justify-center">
-        
-        {(['linkedin', 'instagram', 'github'] as Platform[]).map((platform) => (
-          <div key={platform} className="flex-1 max-w-sm mx-auto w-full">
-            <button
-              onClick={() => handleConnect(platform)}
-              disabled={connectionStatus[platform] !== 'disconnected'}
-              className={getButtonClass(platform)}
-            >
-              {/* Hover sweep effect */}
-              <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out`} />
-              
-              <div className="relative z-10 flex items-center gap-4">
-                {/* Icon container */}
-                <div className={`p-3 rounded-lg bg-gradient-to-br backdrop-blur-sm transition-all duration-300 ${getIconBg(platform)}`}>
-                  {connectionStatus[platform] === 'connecting' ? (
-                    <div className="w-7 h-7 flex items-center justify-center">
-                      <Loader2 className={`w-6 h-6 animate-spin ${getIconColor(platform)}`} />
-                    </div>
-                  ) : connectionStatus[platform] === 'connected' ? (
-                    <Check className={`w-7 h-7 transition-all duration-300 group-hover:scale-110 drop-shadow-lg ${getIconColor(platform)}`} />
-                  ) : (
-                    renderIcon(platform)
-                  )}
-                </div>
-                
-                {/* Text content */}
-                <div className="flex-1 text-left">
-                  <p className={`font-bold text-lg transition-colors duration-300 drop-shadow-sm ${getTextColor(platform)}`}>
-                    {getStatusText(platform)}
-                  </p>
-                  <p className={`text-sm transition-colors duration-300 ${getSubTextColor(platform)}`}>
-                    {getSubText(platform)}
-                  </p>
-                </div>
-                
-                {/* Right Arrow */}
-                <div className={`transition-all duration-300 ${
-                  connectionStatus[platform] !== 'disconnected' ? 'opacity-0' : 'opacity-40 group-hover:opacity-100 group-hover:translate-x-1'
-                }`}>
-                  <ChevronRight className={`w-5 h-5 ${connectionStatus[platform] === 'connected' ? 'text-green-400' : getIconColor(platform)}`} />
-                </div>
+    <div className="flex flex-col gap-3 w-full">
+      {(['linkedin', 'instagram', 'github'] as Platform[]).map((platform) => (
+        <div key={platform} className="w-full">
+          <button
+            onClick={() => handleConnect(platform)}
+            disabled={connectionStatus[platform] !== 'disconnected'}
+            className={getButtonClass(platform)}
+          >
+            {/* Hover sweep effect */}
+            <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out`} />
+            
+            <div className="relative z-10 flex items-center gap-3">
+              {/* Icon container */}
+              <div className={`p-2 rounded-lg bg-gradient-to-br backdrop-blur-sm transition-all duration-300 ${getIconBg(platform)}`}>
+                {connectionStatus[platform] === 'connecting' ? (
+                  <div className="w-5 h-5 flex items-center justify-center">
+                    <Loader2 className={`w-4 h-4 animate-spin ${getIconColor(platform)}`} />
+                  </div>
+                ) : connectionStatus[platform] === 'connected' ? (
+                  <Check className={`w-5 h-5 transition-all duration-300 group-hover:scale-110 drop-shadow-lg ${getIconColor(platform)}`} />
+                ) : (
+                  renderIcon(platform)
+                )}
               </div>
-            </button>
-          </div>
-        ))}
-        
-      </div>
+              
+              {/* Text content */}
+              <div className="flex-1 text-left">
+                <p className={`font-semibold text-[15px] transition-colors duration-300 drop-shadow-sm ${getTextColor(platform)}`}>
+                  {getStatusText(platform)}
+                </p>
+              </div>
+              
+              {/* Right Arrow */}
+              <div className={`transition-all duration-300 ${
+                connectionStatus[platform] !== 'disconnected' ? 'opacity-0' : 'opacity-40 group-hover:opacity-100 group-hover:translate-x-1'
+              }`}>
+                <ChevronRight className={`w-4 h-4 ${connectionStatus[platform] === 'connected' ? 'text-lime-400' : getIconColor(platform)}`} />
+              </div>
+            </div>
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

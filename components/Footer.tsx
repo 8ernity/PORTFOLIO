@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SocialConnectButtons } from "@/components/ui/social-connect-platform-buttons";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/the_8ernity", icon: "/instagram.svg" },
@@ -65,24 +66,9 @@ const Footer = () => {
               <h3 className="font-bold text-[16px] mb-5 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                 Social Media
               </h3>
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label + "-social"}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-row items-center my-[10px] text-gray-400 hover:text-white transition-colors duration-300 group"
-                >
-                  <Image
-                    src={link.icon}
-                    alt={link.label}
-                    width={18}
-                    height={18}
-                    className="opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                  <span className="text-[15px] ml-[10px]">{link.label}</span>
-                </a>
-              ))}
+              <div className="w-full max-w-[280px]">
+                <SocialConnectButtons />
+              </div>
             </motion.div>
 
             {/* About */}
