@@ -46,7 +46,7 @@ const projects = [
     description:
       "A fast and robust video downloading tool. Easily fetch videos from various platforms with high efficiency.",
     image: "/Videofetch.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/VideoFetch.git",
   },
   {
     title: "FaceAttendance",
