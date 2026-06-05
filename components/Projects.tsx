@@ -32,7 +32,7 @@ const projects = [
     description:
       "A stunning, interactive dashboard experience. Visualize data dynamically across the cosmic expanse.",
     image: "/Nebuladash.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/NebulaDashboard.git",
   },
   {
     title: "W.R.A.I.T.H.",
