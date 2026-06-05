@@ -53,7 +53,7 @@ const projects = [
     description:
       "A facial recognition based attendance system. Streamline your attendance tracking process securely and efficiently.",
     image: "/FaceAttend.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/FaceAttendanceSystem.git",
   },
   {
     title: "EyeSense",
