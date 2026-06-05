@@ -18,7 +18,7 @@ const projects = [
     description:
       "A cutting-edge platform to mold and manipulate neural networks. Shape the future of AI with intuitive architectural design.",
     image: "/NeuralSculpt.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/Neural-Sculptor.git",
   },
   {
     title: "Vortex",
