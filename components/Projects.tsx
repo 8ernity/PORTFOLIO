@@ -11,7 +11,7 @@ const projects = [
     description:
       "An empowering tool for the deaf and mute community that translates sign language gestures into written letters and words in real-time.",
     image: "/Unspoken.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/UnSpoken-Landpage.git",
   },
   {
     title: "Neural Sculptor",
