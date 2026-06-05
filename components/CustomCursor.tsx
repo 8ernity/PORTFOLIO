@@ -1,43 +1,37 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const CustomCursor = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
-
-  // Raw mouse position
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Outer ring follows with snappier spring (faster)
-  const ringX = useSpring(mouseX, { damping: 30, stiffness: 3500, mass: 0.02 });
-  const ringY = useSpring(mouseY, { damping: 30, stiffness: 3500, mass: 0.02 });
-
-  // Inner dot follows with snappier spring
-  const dotX = useSpring(mouseX, { damping: 30, stiffness: 400, mass: 0.2 });
-  const dotY = useSpring(mouseY, { damping: 30, stiffness: 400, mass: 0.2 });
-
-  const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
-    },
-    [mouseX, mouseY, isVisible]
-  );
-
-  const handleMouseEnter = useCallback(() => setIsVisible(true), []);
-  const handleMouseLeave = useCallback(() => setIsVisible(false), []);
 
   useEffect(() => {
     // Check for touch devices
     if (typeof window !== "undefined" && "ontouchstart" in window) return;
 
+    const handleMouseMove = (e: MouseEvent) => {
+      const posX = e.clientX;
+      const posY = e.clientY;
+
+      if (dotRef.current) {
+        dotRef.current.style.left = `${posX}px`;
+        dotRef.current.style.top = `${posY}px`;
+      }
+
+      if (ringRef.current) {
+        ringRef.current.animate(
+          {
+            left: `${posX}px`,
+            top: `${posY}px`,
+          },
+          { duration: 500, fill: "forwards" }
+        );
+      }
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseenter", handleMouseEnter);
-    document.addEventListener("mouseleave", handleMouseLeave);
 
     // Detect hoverable elements for scale effect
     const handlePointerOver = (e: Event) => {
@@ -62,40 +56,23 @@ const CustomCursor = () => {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-      document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseover", handlePointerOver);
       document.removeEventListener("mouseout", handlePointerOut);
     };
-  }, [handleMouseMove, handleMouseEnter, handleMouseLeave]);
+  }, []);
 
   // Don't render on touch devices / SSR
   if (typeof window !== "undefined" && "ontouchstart" in window) return null;
 
   return (
     <>
-      {/* Outer ring */}
-      <motion.div
-        className="custom-cursor-ring"
-        style={{
-          x: ringX,
-          y: ringY,
-          opacity: isVisible ? 1 : 0,
-          scale: isHovering ? 1.5 : 1,
-        }}
-        transition={{ scale: { duration: 0.2 } }}
+      <div
+        ref={ringRef}
+        className={`custom-cursor-ring ${isHovering ? "cursor-active" : ""}`}
       />
-
-      {/* Inner dot */}
-      <motion.div
-        className="custom-cursor-dot"
-        style={{
-          x: dotX,
-          y: dotY,
-          opacity: isVisible ? 1 : 0,
-          scale: isHovering ? 1.8 : 1,
-        }}
-        transition={{ scale: { duration: 0.2 } }}
+      <div
+        ref={dotRef}
+        className={`custom-cursor-dot ${isHovering ? "cursor-active" : ""}`}
       />
     </>
   );
