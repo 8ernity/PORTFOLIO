@@ -25,7 +25,7 @@ const projects = [
     description:
       "Navigate the shadows of communication. Silently intercept messages unseen, unearth erased secrets from the void, and command a phantom responder in your stead.",
     image: "/Vortex.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/VORTEX.git",
   },
   {
     title: "Nebula Dashboard",
