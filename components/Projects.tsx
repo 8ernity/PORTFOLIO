@@ -39,7 +39,7 @@ const projects = [
     description:
       "A phantom in the network. An enigmatic tool that grants administrators absolute, unseen control over client screens from the shadows.",
     image: "/Wraith.jpg",
-    link: "https://github.com/8ernity",
+    link: "https://github.com/8ernity/W.R.A.I.T.H..git",
   },
   {
     title: "VideoFetch",
