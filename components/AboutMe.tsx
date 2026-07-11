@@ -219,17 +219,19 @@ const LiquidIntroCard = () => {
       variants={slideInFromLeft(0.3)}
       style={{ position: "relative", marginBottom: "32px" }}
     >
-      {/* Fully clear Liquid Glass panel with pure refraction and no border */}
+      {/* Liquid Glass panel with a subtle galaxy color tint and realistic crystal rim highlight */}
       <div
         ref={glassRef}
         style={{
           position: "relative",
           zIndex: 1,
-          background: "rgba(255, 255, 255, 0.02)",
-          border: "none",
+          background:
+            "linear-gradient(135deg, rgba(112, 66, 248, 0.12) 0%, rgba(30, 14, 62, 0.08) 50%, rgba(0, 212, 255, 0.09) 100%)",
+          border: "1px solid rgba(168, 130, 255, 0.22)",
           borderRadius: "20px",
           padding: "32px",
-          boxShadow: "0 15px 35px rgba(0, 0, 0, 0.35)",
+          boxShadow:
+            "0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0.5px rgba(255, 255, 255, 0.5), inset 0 -1px 0.5px rgba(255, 255, 255, 0.12), inset 1px 0 0.5px rgba(255, 255, 255, 0.25), inset -1px 0 0.5px rgba(255, 255, 255, 0.12)",
           overflow: "hidden",
         }}
       >

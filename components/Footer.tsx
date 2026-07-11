@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SocialConnectButtons } from "@/components/ui/social-connect-platform-buttons";
+import { useLiquidGlass } from "@/hooks/useLiquidGlass";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/the_8ernity", icon: "/instagram.svg" },
@@ -18,12 +19,28 @@ const aboutItems = [
 ];
 
 const Footer = () => {
-  return (
-    <footer className="w-full relative z-[20]">
-      {/* Top gradient border */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#7042f8] to-transparent" />
+  const glassRef = useLiquidGlass<HTMLDivElement>({
+    scale: -140,
+    chroma: 3,
+    mapBlur: 20,
+    blur: 1,
+    saturate: 1.3,
+  });
 
-      <div className="w-full bg-[#030014]/80 backdrop-blur-sm text-gray-200 pt-12 pb-8 px-6 md:px-16">
+  return (
+    <footer className="w-full relative z-[20] overflow-hidden">
+      <div
+        ref={glassRef}
+        style={{
+          position: "relative",
+          zIndex: 1,
+          background: "rgba(0, 0, 0, 0.32)",
+          borderTop: "1px solid rgba(255, 255, 255, 0.16)",
+          boxShadow:
+            "0 -25px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.45)",
+        }}
+        className="w-full text-gray-200 pt-12 pb-8 px-6 md:px-16"
+      >
         <div className="max-w-[1200px] mx-auto">
           {/* Main footer grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16">
