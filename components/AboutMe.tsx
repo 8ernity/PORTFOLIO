@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLiquidGlass } from "../hooks/useLiquidGlass";
 import {
   slideInFromLeft,
   slideInFromRight,
@@ -203,6 +204,110 @@ const HobbyTag = ({
   </motion.span>
 );
 
+/* ── Liquid Glass Intro Card ── */
+const LiquidIntroCard = () => {
+  const glassRef = useLiquidGlass<HTMLDivElement>({
+    scale: -140,
+    chroma: 10,
+    mapBlur: 20,
+    blur: 2,
+    saturate: 1.8,
+  });
+
+  return (
+    <motion.div
+      variants={slideInFromLeft(0.3)}
+      style={{ position: "relative", marginBottom: "32px" }}
+    >
+      {/* Dynamic ambient color glow behind the glass to highlight the liquid edge refraction */}
+      <div
+        style={{
+          position: "absolute",
+          top: "-30px",
+          left: "15%",
+          width: "260px",
+          height: "140px",
+          background:
+            "radial-gradient(circle, rgba(112,66,248,0.45) 0%, rgba(0,212,255,0.25) 55%, transparent 80%)",
+          filter: "blur(30px)",
+          borderRadius: "50%",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-20px",
+          right: "10%",
+          width: "220px",
+          height: "120px",
+          background:
+            "radial-gradient(circle, rgba(0,212,255,0.3) 0%, rgba(112,66,248,0.2) 60%, transparent 80%)",
+          filter: "blur(28px)",
+          borderRadius: "50%",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+
+      {/* The Liquid Glass panel */}
+      <div
+        ref={glassRef}
+        style={{
+          position: "relative",
+          zIndex: 1,
+          background: "rgba(255, 255, 255, 0.03)",
+          border: "1px solid rgba(255, 255, 255, 0.14)",
+          borderRadius: "20px",
+          padding: "32px",
+          boxShadow:
+            "0 20px 45px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.18)",
+          overflow: "hidden",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "18px",
+            lineHeight: 1.8,
+            color: "#b0b0c8",
+          }}
+        >
+          Hello! I&apos;m{" "}
+          <strong
+            style={{
+              background: "linear-gradient(90deg, #7042f8, #00d4ff)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              fontWeight: 700,
+            }}
+          >
+            Arpan Biswas
+          </strong>
+          , a passionate{" "}
+          <strong style={{ color: "#fff" }}>
+            Computer Science &amp; Engineering (AI-ML)
+          </strong>{" "}
+          student exploring the intersection of Artificial Intelligence,
+          Machine Learning, and Frontend Development.
+        </p>
+
+        <p
+          style={{
+            fontSize: "18px",
+            lineHeight: 1.8,
+            color: "#b0b0c8",
+            marginTop: "24px",
+          }}
+        >
+          I enjoy turning ideas into real, usable products—whether it’s crafting intelligent AI-driven features, building responsive web interfaces, or optimizing performance for better user experience. I’m constantly learning and experimenting with new technologies, aiming to create solutions that are not only efficient but also meaningful and user-centric.
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
 /* ── Main About Me Section ── */
 const AboutMe = () => {
   return (
@@ -259,56 +364,7 @@ const AboutMe = () => {
           </motion.div>
 
           {/* Intro card */}
-          <motion.div
-            variants={slideInFromLeft(0.3)}
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(10,5,30,0.7), rgba(20,10,50,0.5))",
-              border: "1px solid rgba(112,66,248,0.2)",
-              borderRadius: "16px",
-              padding: "32px",
-              backdropFilter: "blur(12px)",
-              marginBottom: "32px",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "18px",
-                lineHeight: 1.8,
-                color: "#b0b0c8",
-              }}
-            >
-              Hello! I&apos;m{" "}
-              <strong
-                style={{
-                  background: "linear-gradient(90deg, #7042f8, #00d4ff)",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                  fontWeight: 700,
-                }}
-              >
-                Arpan Biswas
-              </strong>
-              , a passionate{" "}
-              <strong style={{ color: "#fff" }}>
-                Computer Science &amp; Engineering (AI-ML)
-              </strong>{" "}
-              student exploring the intersection of Artificial Intelligence,
-              Machine Learning, and Frontend Development.
-            </p>
-
-            <p
-              style={{
-                fontSize: "18px",
-                lineHeight: 1.8,
-                color: "#b0b0c8",
-                marginTop: "24px",
-              }}
-            >
-              I enjoy turning ideas into real, usable products—whether it’s crafting intelligent AI-driven features, building responsive web interfaces, or optimizing performance for better user experience. I’m constantly learning and experimenting with new technologies, aiming to create solutions that are not only efficient but also meaningful and user-centric.
-            </p>
-          </motion.div>
+          <LiquidIntroCard />
 
           {/* Goals section */}
           <motion.div
