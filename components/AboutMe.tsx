@@ -208,10 +208,10 @@ const HobbyTag = ({
 const LiquidIntroCard = () => {
   const glassRef = useLiquidGlass<HTMLDivElement>({
     scale: -140,
-    chroma: 10,
+    chroma: 2,
     mapBlur: 20,
-    blur: 2,
-    saturate: 1.8,
+    blur: 0,
+    saturate: 1.2,
   });
 
   return (
@@ -219,50 +219,17 @@ const LiquidIntroCard = () => {
       variants={slideInFromLeft(0.3)}
       style={{ position: "relative", marginBottom: "32px" }}
     >
-      {/* Dynamic ambient color glow behind the glass to highlight the liquid edge refraction */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-30px",
-          left: "15%",
-          width: "260px",
-          height: "140px",
-          background:
-            "radial-gradient(circle, rgba(112,66,248,0.45) 0%, rgba(0,212,255,0.25) 55%, transparent 80%)",
-          filter: "blur(30px)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-20px",
-          right: "10%",
-          width: "220px",
-          height: "120px",
-          background:
-            "radial-gradient(circle, rgba(0,212,255,0.3) 0%, rgba(112,66,248,0.2) 60%, transparent 80%)",
-          filter: "blur(28px)",
-          borderRadius: "50%",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
-      {/* The Liquid Glass panel */}
+      {/* Fully clear Liquid Glass panel with pure refraction and no border */}
       <div
         ref={glassRef}
         style={{
           position: "relative",
           zIndex: 1,
-          background: "rgba(255, 255, 255, 0.03)",
-          border: "1px solid rgba(255, 255, 255, 0.14)",
+          background: "rgba(255, 255, 255, 0.02)",
+          border: "none",
           borderRadius: "20px",
           padding: "32px",
-          boxShadow:
-            "0 20px 45px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.18)",
+          boxShadow: "0 15px 35px rgba(0, 0, 0, 0.35)",
           overflow: "hidden",
         }}
       >
