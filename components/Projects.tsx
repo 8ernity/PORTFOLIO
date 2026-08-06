@@ -7,6 +7,13 @@ import HolographicCard from "@/components/ui/holographic-card";
 
 const projects = [
   {
+    title: "SurgeShield",
+    description:
+      "A high-performance, asynchronous lock-free rate limiter, distributed Redis store, and Prometheus telemetry stack built in Rust for high-concurrency web services.",
+    image: "/SurgeShield.jpg",
+    link: "https://github.com/8ernity/SurgeShield.git",
+  },
+  {
     title: "Unspoken",
     description:
       "An empowering tool for the deaf and mute community that translates sign language gestures into written letters and words in real-time.",
