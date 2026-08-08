@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import StarsCanvas from "@/components/StarBackground";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import { OrbitalHeroSection } from "@/components/ui/orbital-hero-section";
 
 export const metadata: Metadata = {
   title: "Arpan Biswas | Portfolio",
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#030014] overflow-y-scroll overflow-x-hidden">
+      <body className="bg-[#030014] overflow-y-scroll overflow-x-hidden relative">
         <CustomCursor />
         <StarsCanvas />
         <Navbar />

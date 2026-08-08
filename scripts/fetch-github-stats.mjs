@@ -80,10 +80,42 @@ async function fetchGitHubStats() {
       color: LANGUAGE_COLORS[name] || "#8b5cf6",
     }));
 
+    // Fetch total contributions via GraphQL API or Search API fallback
+    let totalContributions = 562;
+    try {
+      if (headers["Authorization"]) {
+        const gqlQuery = {
+          query: `query { user(login: "${USERNAME}") { contributionsCollection { contributionCalendar { totalContributions } } } }`
+        };
+        const gqlRes = await fetch("https://api.github.com/graphql", {
+          method: "POST",
+          headers,
+          body: JSON.stringify(gqlQuery)
+        });
+        if (gqlRes.ok) {
+          const gqlData = await gqlRes.json();
+          const count = gqlData?.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions;
+          if (count) totalContributions = count;
+        }
+      } else {
+        const searchRes = await fetch(`https://api.github.com/search/commits?q=author:${USERNAME}`, {
+          headers: { ...headers, Accept: "application/vnd.github.cloak-preview+json" }
+        });
+        if (searchRes.ok) {
+          const searchData = await searchRes.json();
+          if (searchData.total_count && searchData.total_count > 0) {
+            totalContributions = searchData.total_count;
+          }
+        }
+      }
+    } catch (e) {
+      console.log("Contribution count fallback:", e.message);
+    }
+
     // Generate output JSON structure
     const outputData = {
       username: USERNAME,
-      totalContributions: 560, // Kept to match actual profile contribution graph
+      totalContributions,
       publicRepos: userData.public_repos || repos.length,
       languagesCount: Object.keys(languageTotals).length || 8,
       currentStreak: 14,

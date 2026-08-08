@@ -9,6 +9,7 @@ import {
 } from "../utils/motion";
 import Image from "next/image";
 import { StarButton } from "@/components/ui/star-button";
+import { OrbitalHeroSection } from "@/components/ui/orbital-hero-section";
 
 const HeroContent = () => {
   const x = useMotionValue(0);
@@ -102,28 +103,25 @@ const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
-        style={{ perspective: 1000 }}
+        className="w-full h-full flex justify-center items-center mt-6 md:mt-0"
       >
-        <motion.div
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
+        <div
+          className="w-full max-w-[850px] h-[550px] sm:h-[650px] md:h-[720px] lg:h-[780px] relative flex items-center justify-center bg-transparent"
           style={{
-            rotateX,
-            rotateY,
-            transformStyle: "preserve-3d",
+            maskImage: "radial-gradient(ellipse 85% 85% at center, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 85% 85% at center, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%)",
           }}
-          className="cursor-pointer"
         >
-          <Image
-            src="/mainIconsdark.svg"
-            alt="work icons"
-            height={650}
-            width={650}
-            draggable={false}
-            priority
+          <OrbitalHeroSection
+            focus={[0.5, 0.48]}
+            scrim="none"
+            viewRadius={2.4}
+            glow={1.3}
+            starCount={1800}
+            interactive={true}
+            className="w-full h-full bg-transparent"
           />
-        </motion.div>
+        </div>
       </motion.div>
     </motion.div>
   );
