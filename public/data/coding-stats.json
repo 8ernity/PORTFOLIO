@@ -7,32 +7,32 @@
   "languages": [
     {
       "name": "JavaScript",
-      "percentage": 33.2,
+      "percentage": 31.9,
       "color": "#f1e05a"
     },
     {
       "name": "TypeScript",
-      "percentage": 21.9,
+      "percentage": 25.7,
       "color": "#3178c6"
     },
     {
       "name": "Kotlin",
-      "percentage": 15.3,
+      "percentage": 14.4,
       "color": "#A97BFF"
     },
     {
       "name": "CSS",
-      "percentage": 8.2,
+      "percentage": 7.7,
       "color": "#563d7c"
     },
     {
       "name": "HTML",
-      "percentage": 6.4,
+      "percentage": 6.1,
       "color": "#e34c26"
     },
     {
       "name": "Python",
-      "percentage": 6,
+      "percentage": 5.7,
       "color": "#3572A5"
     }
   ],
@@ -50,5 +50,5 @@
     "Jun",
     "Jul"
   ],
-  "lastUpdated": "2026-08-08T16:24:09.243Z"
+  "lastUpdated": "2026-08-08T18:46:15.558Z"
 }
