@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
+import CodingStats from "@/components/CodingStats";
 import Encryption from "@/components/Encryption";
 import Projects from "@/components/Projects";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <AboutMe />
         <Skills />
+        <CodingStats />
         <Encryption />
         <Projects />
       </div>

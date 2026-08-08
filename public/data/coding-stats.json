@@ -1,0 +1,16 @@
+{
+  "username": "8ernity",
+  "totalContributions": 560,
+  "publicRepos": 24,
+  "languagesCount": 8,
+  "currentStreak": 14,
+  "languages": [
+    { "name": "TypeScript", "percentage": 38.5, "color": "#3178c6" },
+    { "name": "Python", "percentage": 24.2, "color": "#3572A5" },
+    { "name": "JavaScript", "percentage": 18.1, "color": "#f1e05a" },
+    { "name": "Rust", "percentage": 11.4, "color": "#dea584" },
+    { "name": "C++", "percentage": 4.6, "color": "#f34b7d" },
+    { "name": "Kotlin", "percentage": 3.2, "color": "#A97BFF" }
+  ],
+  "months": ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"]
+}
