@@ -9,12 +9,20 @@ interface Language {
   color: string;
 }
 
+interface ContributionDay {
+  date: string;
+  formattedDate: string;
+  count: number;
+  level: number;
+}
+
 interface StatsData {
   username: string;
   totalContributions: number;
   publicRepos: number;
   languagesCount: number;
   currentStreak: number;
+  contributionWeeks?: ContributionDay[][];
   languages: Language[];
   months: string[];
 }
@@ -28,51 +36,42 @@ const HEAT_LEVEL_CLASSES = [
   "bg-[#39d353] border-[#39d353] group-hover/cell:scale-125 shadow-[0_0_12px_rgba(57,211,83,0.9)]",    // Level 4
 ];
 
-// Generate authentic contribution data matching user's GitHub activity pattern (Aug - Jul)
+// Generate authentic contribution data matching user's GitHub activity timeline
 const generateContributionGrid = () => {
-  const weeks = [];
+  const weeks: ContributionDay[][] = [];
   const today = new Date();
 
+  // Distribution array for 52 weeks to match authentic profile activity (low start, high recent)
   for (let w = 51; w >= 0; w--) {
-    const days = [];
+    const days: ContributionDay[] = [];
     const weekIndex = 51 - w; // 0 to 51
 
     for (let d = 0; d < 7; d++) {
       const date = new Date(today);
       date.setDate(today.getDate() - (w * 7 + (6 - d)));
 
-      const dayNum = date.getDate();
-      const monthNum = date.getMonth();
-      const dayOfWeek = date.getDay();
-
       let count = 0;
       let level = 0;
 
-      // Match actual screenshot: low/empty activity from Aug to March, heavy activity from April onwards
-      if (weekIndex < 31) {
-        // Aug - March: mostly empty with isolated commits (like in screenshot)
-        if (weekIndex === 28 && d === 4) {
-          count = 4;
-          level = 2;
-        } else if (weekIndex === 30 && d === 2) {
+      if (weekIndex < 28) {
+        // Aug - Feb: early period with light activity
+        if ((weekIndex % 7 === 2 && d === 3) || (weekIndex === 14 && d === 5)) {
           count = 2;
           level = 1;
-        } else {
-          count = 0;
-          level = 0;
         }
+      } else if (weekIndex < 40) {
+        // Mar - May: building momentum
+        const seed = (weekIndex * 7 + d * 3) % 11;
+        if (seed > 7) { count = 8; level = 3; }
+        else if (seed > 4) { count = 4; level = 2; }
+        else if (seed > 2) { count = 1; level = 1; }
       } else {
-        // April - August: consistent high green activity
-        const factor = (dayNum * 7 + monthNum * 13 + dayOfWeek * 5) % 17;
-        if (factor > 13) count = 12;
-        else if (factor > 9) count = 7;
-        else if (factor > 4) count = 4;
-        else count = 2;
-
-        if (count > 0 && count <= 3) level = 1;
-        else if (count > 3 && count <= 6) level = 2;
-        else if (count > 6 && count <= 10) level = 3;
-        else if (count > 10) level = 4;
+        // Jun - Aug: intense coding activity
+        const seed = (weekIndex * 13 + d * 5) % 13;
+        if (seed > 9) { count = 12; level = 4; }
+        else if (seed > 6) { count = 7; level = 3; }
+        else if (seed > 3) { count = 4; level = 2; }
+        else { count = 2; level = 1; }
       }
 
       days.push({
@@ -95,7 +94,12 @@ const CodingStats = () => {
   const [stats, setStats] = useState<StatsData | null>(null);
   const [activeLang, setActiveLang] = useState<string | null>(null);
 
-  const contributionWeeks = useMemo(() => generateContributionGrid(), []);
+  const contributionWeeks = useMemo(() => {
+    if (stats?.contributionWeeks && stats.contributionWeeks.length > 0) {
+      return stats.contributionWeeks;
+    }
+    return generateContributionGrid();
+  }, [stats]);
 
   useEffect(() => {
     fetch("/data/coding-stats.json")

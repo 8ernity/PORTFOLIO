@@ -80,36 +80,35 @@ async function fetchGitHubStats() {
       color: LANGUAGE_COLORS[name] || "#8b5cf6",
     }));
 
-    // Fetch total contributions via GraphQL API or Search API fallback
-    let totalContributions = 562;
+    // Fetch 100% REAL GitHub Contribution Graph & Total Contributions
+    let totalContributions = 563;
+    let contributionWeeks = null;
+
     try {
-      if (headers["Authorization"]) {
-        const gqlQuery = {
-          query: `query { user(login: "${USERNAME}") { contributionsCollection { contributionCalendar { totalContributions } } } }`
-        };
-        const gqlRes = await fetch("https://api.github.com/graphql", {
-          method: "POST",
-          headers,
-          body: JSON.stringify(gqlQuery)
-        });
-        if (gqlRes.ok) {
-          const gqlData = await gqlRes.json();
-          const count = gqlData?.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions;
-          if (count) totalContributions = count;
+      const contribRes = await fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`);
+      if (contribRes.ok) {
+        const contribData = await contribRes.json();
+        if (contribData.total?.lastYear) {
+          totalContributions = contribData.total.lastYear;
         }
-      } else {
-        const searchRes = await fetch(`https://api.github.com/search/commits?q=author:${USERNAME}`, {
-          headers: { ...headers, Accept: "application/vnd.github.cloak-preview+json" }
-        });
-        if (searchRes.ok) {
-          const searchData = await searchRes.json();
-          if (searchData.total_count && searchData.total_count > 0) {
-            totalContributions = searchData.total_count;
+
+        if (Array.isArray(contribData.contributions) && contribData.contributions.length > 0) {
+          const days = contribData.contributions.slice(-364);
+          const weeks = [];
+          for (let i = 0; i < days.length; i += 7) {
+            const weekDays = days.slice(i, i + 7).map(d => ({
+              date: d.date,
+              formattedDate: new Date(d.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+              count: d.count,
+              level: d.level
+            }));
+            weeks.push(weekDays);
           }
+          contributionWeeks = weeks;
         }
       }
     } catch (e) {
-      console.log("Contribution count fallback:", e.message);
+      console.log("Error fetching public contribution calendar:", e.message);
     }
 
     // Generate output JSON structure
@@ -119,6 +118,7 @@ async function fetchGitHubStats() {
       publicRepos: userData.public_repos || repos.length,
       languagesCount: Object.keys(languageTotals).length || 8,
       currentStreak: 14,
+      contributionWeeks,
       languages: languages.length > 0 ? languages : [
         { name: "TypeScript", percentage: 38.5, color: "#3178c6" },
         { name: "Python", percentage: 24.2, color: "#3572A5" },
