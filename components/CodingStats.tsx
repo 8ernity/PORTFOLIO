@@ -92,7 +92,6 @@ const generateContributionGrid = () => {
 
 const CodingStats = () => {
   const [stats, setStats] = useState<StatsData | null>(null);
-  const [activeLang, setActiveLang] = useState<string | null>(null);
 
   const contributionWeeks = useMemo(() => {
     if (stats?.contributionWeeks && stats.contributionWeeks.length > 0) {
@@ -220,7 +219,7 @@ const CodingStats = () => {
           </div>
 
           {/* Language Breakdown Card */}
-          <div className="p-6 rounded-xl border border-[#30363d] bg-[#0d1117]/90 flex-1 flex flex-col justify-between">
+          <div className="p-6 rounded-xl border border-[#30363d] bg-[#0d1117]/90 flex-1 flex flex-col justify-between transform-gpu">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-white">Language Breakdown</h3>
@@ -228,7 +227,7 @@ const CodingStats = () => {
               </div>
 
               {/* Segmented Progress Bar */}
-              <div className="h-3 w-full rounded-full bg-[#161b22] overflow-hidden flex p-0.5 gap-0.5 border border-[#30363d] mb-6">
+              <div className="h-3.5 w-full rounded-full bg-[#161b22] overflow-visible flex p-0.5 gap-0.5 border border-[#30363d] mb-6">
                 {stats?.languages.map((lang) => (
                   <div
                     key={lang.name}
@@ -236,11 +235,8 @@ const CodingStats = () => {
                       width: `${lang.percentage}%`,
                       backgroundColor: lang.color,
                     }}
-                    className={`h-full rounded-sm transition-all duration-200 ${
-                      activeLang === lang.name ? "ring-2 ring-white scale-y-125 z-10" : "opacity-90 hover:opacity-100"
-                    }`}
-                    onMouseEnter={() => setActiveLang(lang.name)}
-                    onMouseLeave={() => setActiveLang(null)}
+                    title={`${lang.name}: ${lang.percentage}%`}
+                    className="h-full rounded-sm opacity-90 hover:opacity-100 hover:scale-y-125 hover:brightness-125 transition-all duration-150 cursor-pointer transform-gpu origin-center"
                   />
                 ))}
               </div>
@@ -250,11 +246,7 @@ const CodingStats = () => {
                 {stats?.languages.map((lang) => (
                   <div
                     key={lang.name}
-                    className={`flex items-center justify-between p-2 rounded-lg transition-colors cursor-pointer ${
-                      activeLang === lang.name ? "bg-[#161b22] border border-[#30363d]" : "hover:bg-[#161b22]/50"
-                    }`}
-                    onMouseEnter={() => setActiveLang(lang.name)}
-                    onMouseLeave={() => setActiveLang(null)}
+                    className="flex items-center justify-between p-2 rounded-lg border border-transparent hover:border-[#30363d] hover:bg-[#161b22] transition-colors duration-150 cursor-pointer transform-gpu"
                   >
                     <div className="flex items-center gap-2">
                       <span
